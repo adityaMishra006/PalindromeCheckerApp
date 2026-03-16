@@ -1,8 +1,26 @@
 import java.util.*;
-public class PalindromeCheckerApp{
-    static void main(String[] args)  {
-        System.out.println("Welcome to the Palindrome checker management system");
-        System.out.println("Version 1.0");
-        System.out.println("System initialized successfully");
+
+public class PalindromeCheckerApp {
+    public static void main(String[] args)
+    {
+        String input = "civic";   // change word here
+        Queue<Character> queue = new LinkedList<>();
+        Stack<Character> stack = new Stack<>();
+        for (char c : input.toCharArray())
+        {
+            queue.add(c);
+            stack.push(c);
+        }
+        boolean isPalindrome = true;
+        while (!queue.isEmpty())
+        {
+            if (queue.remove() != stack.pop())
+            {
+                isPalindrome = false;
+                break;
+            }
+        }
+        System.out.println("Input: " + input);
+        System.out.println("Is Palindrome? " + isPalindrome);
     }
 }
